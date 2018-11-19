@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="uniftec.com.br.ecommerce.ui.FinalizaCompraActivity"
+    android:orientation="vertical">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/main_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:theme="@style/Toolbar" />
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_account_circle_black_48dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textAlignment="center"
+                android:text="Finalizar Compra"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selecione o Endereço de entrega:"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/finaliza_compra_recycle_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+            <TextView
+                android:id="@+id/finaliza_compra_adiciona_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adicione um novo endereço"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Forma de Pagamento:"/>
+
+            <EditText
+                android:id="@+id/finaliza_compra_cartao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número do cartão"
+                android:inputType="number"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/finaliza_compra_expiracao"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:hint="Expiração"
+                    />
+                <EditText
+                    android:id="@+id/finaliza_compra_cvv"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:hint="CVV"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/finaliza_compra_finaliza_pedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Finalizar Pedido" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

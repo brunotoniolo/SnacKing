@@ -1,0 +1,52 @@
+package uniftec.com.br.ecommerce.tasks;
+
+import android.os.AsyncTask;
+
+import retrofit2.Call;
+import uniftec.com.br.ecommerce.model.Response;
+import uniftec.com.br.ecommerce.model.Usuario;
+import uniftec.com.br.ecommerce.services.UsuarioService;
+import uniftec.com.br.ecommerce.singleton.RetrofitSingleton;
+
+/**
+ * Created by bruno.toniolo on 10/12/2017.
+ */
+
+public class ApagaEnderecoTask extends AsyncTask<Integer, Void, Response<Usuario>> {
+
+    private UsuarioService service;
+    private ApagaEnderecoDelegate delegate;
+
+    public ApagaEnderecoTask(ApagaEnderecoDelegate delegate){
+        this.service = RetrofitSingleton.getInstance().getRetrofit().create(UsuarioService.class);
+        this.delegate = delegate;
+    }
+
+    @Override
+    protected Response<Usuario> doInBackground(Integer... integers) {
+        Call<Response<Usuario>> call = this.service.apagaEndereco("",integers[0]);
+
+        try{
+            retrofit2.Response<Response<Usuario>> response = call.execute();
+            return response.body();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    protected void onPostExecute(Response<Usuario> response) {
+        if(response != null){
+            this.delegate.ApagaEnderecoSucesso(response);
+        }else{
+            this.delegate.ApagaEnderecoErro("Não foi possível apagar o endereço");
+        }
+    }
+
+    public interface ApagaEnderecoDelegate{
+        public void ApagaEnderecoSucesso(Response<Usuario> response);
+        public void ApagaEnderecoErro(String mensagem);
+    }
+}
