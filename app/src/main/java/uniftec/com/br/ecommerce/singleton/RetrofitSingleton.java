@@ -14,7 +14,7 @@ public class RetrofitSingleton {
 
     private RetrofitSingleton(){
         this.retrofit =  new Retrofit.Builder()
-                .baseUrl("http://54.207.42.228:4040/")
+                .baseUrl("https://snackingapi.azurewebsites.net/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }

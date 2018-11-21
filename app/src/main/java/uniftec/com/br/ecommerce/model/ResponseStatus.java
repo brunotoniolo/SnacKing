@@ -5,6 +5,6 @@ package uniftec.com.br.ecommerce.model;
  */
 
 public enum ResponseStatus {
-    SUCCESS,
+    OK,
     ERROR
 }

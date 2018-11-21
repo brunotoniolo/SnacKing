@@ -15,12 +15,12 @@ import uniftec.com.br.ecommerce.model.Response;
 
 public interface ProdutoService {
 
-    @GET("/produto")
+    @GET("/api/produto")
     public Call<Response<List<Produto>>> buscaPorCategoria(@Query("categoria-id") Long categoriaId);
 
-    @GET("/produto/categorias")
+    @GET("/api/categoria")
     public Call<Response<List<Categoria>>>buscaTodasCategorias();
 
-    @GET("/produto")
+    @GET("/api/produto")
     public Call<Response<List<Produto>>> buscaTodosProdutos();
 }

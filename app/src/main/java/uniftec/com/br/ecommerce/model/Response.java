@@ -20,16 +20,16 @@ public class Response<T> {
         this.message = message;
     }
 
-    public void setData(T data) {
-        this.data = data;
-    }
-
     public ResponseStatus getStatus() {
         return status;
     }
 
     public String getMessage() {
         return message;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
     public T getData() {
