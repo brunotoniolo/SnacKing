@@ -32,7 +32,7 @@ public class Produto implements Serializable {
     @JsonProperty("precoDesconto")
     private Double precoDesconto;
 
-    @JsonProperty("categoira")
+    @JsonProperty("categoria")
     private Categoria categoria;
 
     public String getTitulo() {
