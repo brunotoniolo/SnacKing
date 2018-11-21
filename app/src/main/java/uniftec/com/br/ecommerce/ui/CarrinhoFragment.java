@@ -13,6 +13,7 @@ import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -22,11 +23,12 @@ import uniftec.com.br.ecommerce.adapter.ProdutoAdapter;
 import uniftec.com.br.ecommerce.interfaces.CardViewListeners;
 import uniftec.com.br.ecommerce.model.Produto;
 
-public class CarrinhoFragment extends Fragment implements CardViewListeners {
+public class CarrinhoFragment extends Fragment implements CardViewListeners, View.OnClickListener {
 
     private RecyclerView recyclerView;
     private List<Produto> produtos;
     private CarrinhoAdapter adapter;
+    private Button finalizaCarrinho;
 
     public CarrinhoFragment() {
     }
@@ -37,6 +39,8 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners {
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.fragment_carrinho_recycle);
         recyclerView.setHasFixedSize(true);
+
+        finalizaCarrinho = (Button) view.findViewById(R.id.finaliza_compra_carrinho);
         return view;
     }
 
@@ -47,6 +51,8 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners {
 
         adapter = new CarrinhoAdapter(produtos, this);
         recyclerView.setAdapter(adapter);
+
+        finalizaCarrinho.setOnClickListener(this);
 
         super.onActivityCreated(savedInstanceState);
     }
@@ -69,5 +75,11 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners {
     @Override
     public boolean onItemLongClickListener(Produto produto, View v) {
         return false;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(getActivity(), FinalizaCompraActivity.class);
+        startActivity(intent);
     }
 }

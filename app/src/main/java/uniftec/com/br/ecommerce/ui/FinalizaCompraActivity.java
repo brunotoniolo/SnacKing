@@ -1,6 +1,7 @@
 package uniftec.com.br.ecommerce.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -64,6 +65,8 @@ public class FinalizaCompraActivity extends AbstractActivity implements View.OnC
                                    ,
 
             )))*/
+            Intent intent = new Intent(this, QrCode.class);
+            startActivity(intent);
         }
     }
 
