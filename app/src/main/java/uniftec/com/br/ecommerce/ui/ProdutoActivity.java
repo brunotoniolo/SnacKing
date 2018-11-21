@@ -35,7 +35,7 @@ public class ProdutoActivity extends AbstractActivity {
         txtResumo = (TextView)findViewById(R.id.produto_resumo);
         txtNome = (TextView)findViewById(R.id.produto_titulo);
         txtPreco = (TextView)findViewById(R.id.produto_preco);
-        pgrImagens = (ViewPager) findViewById(R.id.produto_lista_imagens);
+        //pgrImagens = (ViewPager) findViewById(R.id.produto_lista_imagens);
         btnAdicionarCarrinho = (Button) findViewById(R.id.produto_adicionar_carrinho);
 
         produto = (Produto)getIntent().getSerializableExtra(PRODUTO_PARAMETER);

@@ -20,11 +20,11 @@ public class Produto implements Serializable {
     @JsonProperty("descricao")
     private String descricao;
 
-    @JsonProperty("imagemPrincipal")
-    private Imagem imagem;
+    //@JsonProperty("imagemPrincipal")
+    //private Imagem imagem;
 
-    @JsonProperty("imagens")
-    private List<Imagem> listaImagem;
+    //@JsonProperty("imagens")
+    //private List<Imagem> listaImagem;
 
     @JsonProperty("preco")
     private Double preco;
@@ -43,13 +43,13 @@ public class Produto implements Serializable {
         return descricao;
     }
 
-    public Imagem getImagem() {
-        return imagem;
-    }
+    //public Imagem getImagem() {
+    //    return imagem;
+    //}
 
-    public List<Imagem> getListaImagem() {
-        return listaImagem;
-    }
+    //public List<Imagem> getListaImagem() {
+    //    return listaImagem;
+    //}
 
     public Double getPreco() {
         return preco;

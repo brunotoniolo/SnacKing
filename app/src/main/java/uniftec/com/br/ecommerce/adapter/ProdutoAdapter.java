@@ -24,7 +24,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoV
     class ProdutoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnDragListener, View.OnLongClickListener {
         View layoutView;
         CardView cardProduto;
-        ImageView imgProduto;
+        //ImageView imgProduto;
         TextView prodValor;
         TextView prodNome;
         TextView prodDescricao;
@@ -33,7 +33,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoV
             super(itemView);
             layoutView = itemView;
             cardProduto = (CardView)itemView.findViewById(R.id.produto_card_view);
-            imgProduto = (ImageView)itemView.findViewById(R.id.produto_card_imagem);
+            //imgProduto = (ImageView)itemView.findViewById(R.id.produto_card_imagem);
             prodValor = (TextView)itemView.findViewById(R.id.produto_card_preco);
             prodNome = (TextView)itemView.findViewById(R.id.produto_card_nome);
             prodDescricao = (TextView)itemView.findViewById(R.id.produto_card_descricao);

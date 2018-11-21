@@ -57,7 +57,7 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
         TextView txtTitulo;
         TextView txtPreco;
         TextView txtDescricao;
-        ImageView imgImagem;
+        //ImageView imgImagem;
 
         CarrinhoViewHolder(View itemView) {
             super(itemView);
@@ -65,7 +65,7 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
             txtTitulo = (TextView)itemView.findViewById(R.id.carrinho_card_titulo);
             txtPreco = (TextView)itemView.findViewById(R.id.carrinho_card_preco);
             txtDescricao = (TextView)itemView.findViewById(R.id.carrinho_card_descricao);
-            imgImagem = (ImageView)itemView.findViewById(R.id.carrinho_card_imagem);
+            //imgImagem = (ImageView)itemView.findViewById(R.id.carrinho_card_imagem);
 
             cardCarrinho.setOnClickListener(this);
         }
