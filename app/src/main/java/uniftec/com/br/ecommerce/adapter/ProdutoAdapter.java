@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import uniftec.com.br.ecommerce.R;
 import uniftec.com.br.ecommerce.interfaces.CardViewListeners;
@@ -84,7 +86,11 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoV
         //produtos.get(i).getImagem().criaImagem(this.context, produtoViewHolder.imgProduto);
 
         produtoViewHolder.prodNome.setText(produtos.get(i).getTitulo());
-        produtoViewHolder.prodValor.setText("R$ "+produtos.get(i).getPreco());
+
+        Locale ptBr = new Locale("pt", "BR");
+        String valorPreco = NumberFormat.getCurrencyInstance(ptBr).format(produtos.get(i).getPreco());
+
+        produtoViewHolder.prodValor.setText(valorPreco);
         if(produtos.get(i).getDescricao().length() > 50) {
             produtoViewHolder.prodDescricao.setText(produtos.get(i).getDescricao().replace("\n", "").substring(0, 50).concat("..."));
         }else {
