@@ -1,7 +1,5 @@
 package uniftec.com.br.ecommerce.model;
 
-import android.app.ProgressDialog;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -35,44 +33,67 @@ public class Produto implements Serializable {
     @JsonProperty("categoria")
     private Categoria categoria;
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    //public Imagem getImagem() {
-    //    return imagem;
-    //}
-
-    //public List<Imagem> getListaImagem() {
-    //    return listaImagem;
-    //}
-
-    public Double getPreco() {
-        return preco;
-    }
-
-    public Double getPrecoDesconto() {
-        return precoDesconto;
-    }
-
-    public Categoria getCategoria() {
-        return categoria;
+    public Integer getId() {
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    /*public Imagem getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(Imagem imagem) {
+        this.imagem = imagem;
+    }
+
+    public List<Imagem> getListaImagem() {
+        return listaImagem;
+    }
+
+    public void setListaImagem(List<Imagem> listaImagem) {
+        this.listaImagem = listaImagem;
+    }*/
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Double getPrecoDesconto() {
+        return precoDesconto;
+    }
+
     public void setPrecoDesconto(Double precoDesconto) {
         this.precoDesconto = precoDesconto;
     }
 
-    public Integer getId() {
-        return this.id;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

@@ -5,12 +5,13 @@ import android.support.v7.widget.CardView;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Categoria {
+public class Categoria implements Serializable {
 
     @JsonProperty("id")
     private Integer id;
