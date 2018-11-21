@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import uniftec.com.br.ecommerce.R;
 import uniftec.com.br.ecommerce.interfaces.CardViewListeners;
@@ -44,7 +46,10 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
             holder.txtDescricao.setText(p.getDescricao().replace("\n", ""));
         }
         //p.getImagem().criaImagem(this.context, holder.imgImagem);
-        holder.txtPreco.setText("R$ "+ p.getPreco());
+        Locale ptBr = new Locale("pt", "BR");
+        String valorPreco = NumberFormat.getCurrencyInstance(ptBr).format(p.getPreco());
+
+        holder.txtPreco.setText(valorPreco);
     }
 
     @Override
