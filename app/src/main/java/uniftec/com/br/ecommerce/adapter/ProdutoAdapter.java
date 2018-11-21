@@ -81,11 +81,15 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoV
     public void onBindViewHolder(ProdutoViewHolder produtoViewHolder, int i) {
         produtoViewHolder.layoutView.setTag(produtos.get(i));
 
-        produtos.get(i).getImagem().criaImagem(this.context, produtoViewHolder.imgProduto);
+        //produtos.get(i).getImagem().criaImagem(this.context, produtoViewHolder.imgProduto);
 
         produtoViewHolder.prodNome.setText(produtos.get(i).getTitulo());
         produtoViewHolder.prodValor.setText("R$ "+produtos.get(i).getPreco());
-        produtoViewHolder.prodDescricao.setText(produtos.get(i).getDescricao().replace("\n", "").substring(0, 50).concat("..."));
+        if(produtos.get(i).getDescricao().length() > 50) {
+            produtoViewHolder.prodDescricao.setText(produtos.get(i).getDescricao().replace("\n", "").substring(0, 50).concat("..."));
+        }else {
+            produtoViewHolder.prodDescricao.setText(produtos.get(i).getDescricao().replace("\n", ""));
+        }
     }
 
     @Override

@@ -44,8 +44,8 @@ public class ProdutoActivity extends AbstractActivity {
         txtPreco.setText("R$ "+produto.getPreco());
         txtResumo.setText(produto.getDescricao());
 
-        PageViewAdapter adapter = new PageViewAdapter(produto.getListaImagem(),this);
-        pgrImagens.setAdapter(adapter);
+        //PageViewAdapter adapter = new PageViewAdapter(produto.getListaImagem(),this);
+        //pgrImagens.setAdapter(adapter);
     }
 
     @Override

@@ -38,8 +38,12 @@ public class CarrinhoAdapter extends RecyclerView.Adapter<CarrinhoAdapter.Carrin
     public void onBindViewHolder(CarrinhoViewHolder holder, int position) {
         Produto p = produtos.get(position);
         holder.txtTitulo.setText(p.getTitulo());
-        holder.txtDescricao.setText(p.getDescricao().replace("\n", "").substring(0, 50).concat("..."));
-        p.getImagem().criaImagem(this.context, holder.imgImagem);
+        if(p.getDescricao().length() > 50) {
+            holder.txtDescricao.setText(p.getDescricao().replace("\n", "").substring(0, 50).concat("..."));
+        }else{
+            holder.txtDescricao.setText(p.getDescricao().replace("\n", ""));
+        }
+        //p.getImagem().criaImagem(this.context, holder.imgImagem);
         holder.txtPreco.setText("R$ "+ p.getPreco());
     }
 
