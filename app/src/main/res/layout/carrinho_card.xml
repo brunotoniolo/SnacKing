@@ -10,9 +10,10 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/carrinho_card_imagem"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/carrinho_remove"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_remove_shopping_cart_black_24dp"
             android:padding="10dp"/>
 
         <LinearLayout

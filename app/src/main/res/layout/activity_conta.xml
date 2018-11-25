@@ -87,29 +87,6 @@
                 android:inputType="text|textAutoComplete"
                 android:hint="Telefone"/>
 
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Endereços"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="16dp"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/conta_lista_endereco"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <TextView
-                android:id="@+id/conta_adicionar_novo_endereco"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Adicionar novo endereço"
-                android:textSize="15dp"/>
-
             <TextView
                 android:id="@+id/conta_historico_compras"
                 android:layout_width="match_parent"

@@ -14,8 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import uniftec.com.br.ecommerce.R;
 import uniftec.com.br.ecommerce.adapter.CarrinhoAdapter;
@@ -29,6 +33,7 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners, Vie
     private List<Produto> produtos;
     private CarrinhoAdapter adapter;
     private Button finalizaCarrinho;
+    private TextView txtValor;
 
     public CarrinhoFragment() {
     }
@@ -39,6 +44,7 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners, Vie
         View view = inflater.inflate(R.layout.fragment_carrinho, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.fragment_carrinho_recycle);
         recyclerView.setHasFixedSize(true);
+        txtValor = (TextView)view.findViewById(R.id.valor_total_compra);
 
         finalizaCarrinho = (Button) view.findViewById(R.id.finaliza_compra_carrinho);
         return view;
@@ -46,14 +52,22 @@ public class CarrinhoFragment extends Fragment implements CardViewListeners, Vie
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        double valorTotal = 0;
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         this.produtos = ((AbstractActivity)getActivity()).appUtil.getCarrinho();
+
+        for (Produto p: produtos) {
+            valorTotal += p.getPreco();
+        }
+
+        Locale ptBr = new Locale("pt", "BR");
+        String valorPreco = NumberFormat.getCurrencyInstance(ptBr).format(valorTotal);
+        txtValor.setText(valorPreco);
 
         adapter = new CarrinhoAdapter(produtos, this);
         recyclerView.setAdapter(adapter);
 
         finalizaCarrinho.setOnClickListener(this);
-
         super.onActivityCreated(savedInstanceState);
     }
 

@@ -78,6 +78,7 @@ public class MenuActivity extends AbstractActivity implements NavigationView.OnN
 
     private void mudarContainerPrincipal(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
         transaction.replace(R.id.main_container, fragment);
         transaction.commit();
     }

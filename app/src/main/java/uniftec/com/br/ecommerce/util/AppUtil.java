@@ -2,6 +2,8 @@ package uniftec.com.br.ecommerce.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.FragmentTransaction;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import uniftec.com.br.ecommerce.R;
 import uniftec.com.br.ecommerce.model.Categoria;
 import uniftec.com.br.ecommerce.model.Pedido;
 import uniftec.com.br.ecommerce.model.Produto;
@@ -68,6 +71,20 @@ public class AppUtil {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+        Toast.makeText(context, "Adicionado ao Carrinho", Toast.LENGTH_LONG).show();
+    }
+
+    public void removeCarrinho(int id){
+        try {
+            List<Produto> lista = this.getCarrinho();
+            lista.remove(id);
+
+            this.editor.putString("carrinho", this.mapper.writeValueAsString(lista));
+            this.editor.commit();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        Toast.makeText(context, "Removido do Carrinho", Toast.LENGTH_LONG).show();
     }
 
     public Usuario getUsuarioLogado() {

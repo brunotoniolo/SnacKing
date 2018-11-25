@@ -52,7 +52,6 @@ public abstract class AbstractActivity extends AppCompatActivity implements View
         if(y < 132) {
             if (action == DragEvent.ACTION_DROP){
                 appUtil.addCarrinho(produto);
-                Toast.makeText(this, "Adicionado ao Carrinho", Toast.LENGTH_LONG).show();
             }
         }
 

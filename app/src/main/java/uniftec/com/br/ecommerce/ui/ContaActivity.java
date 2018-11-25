@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import uniftec.com.br.ecommerce.R;
@@ -26,11 +27,7 @@ public class ContaActivity extends AbstractActivity implements View.OnClickListe
     private EditText email;
     private EditText cpf;
     private EditText telefone;
-    private RecyclerView listaEndereco;
-    private TextView adicionarEndereco;
     private TextView historicoCompras;
-    private List<Endereco> enderecos;
-    private EnderecoAdapter adapter;
 
     @Override
     protected int getLayoutRes() {
@@ -43,21 +40,8 @@ public class ContaActivity extends AbstractActivity implements View.OnClickListe
         email = (EditText)findViewById(R.id.conta_email);
         cpf = (EditText)findViewById(R.id.conta_cpf);
         telefone = (EditText)findViewById(R.id.conta_telefone);
-        listaEndereco = (RecyclerView)findViewById(R.id.conta_lista_endereco);
-        adicionarEndereco = (TextView)findViewById(R.id.conta_adicionar_novo_endereco);
         historicoCompras = (TextView)findViewById(R.id.conta_historico_compras);
-
-        adicionarEndereco.setOnClickListener(this);
         historicoCompras.setOnClickListener(this);
-
-
-        listaEndereco.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        adapter = new EnderecoAdapter(enderecos, this);
-        listaEndereco.setAdapter(adapter);
-
-        listaEndereco.setHasFixedSize(true);
-
     }
 
     @Override
@@ -67,17 +51,14 @@ public class ContaActivity extends AbstractActivity implements View.OnClickListe
             finish();
             return true;
         }
-        return super.onOptionsItemSelected(item);
+
+        return false;
     }
 
     @Override
     public void onClick(View v) {
 
-        if(v == adicionarEndereco){
-            Intent intent = new Intent(this, EnderecoActivity.class);
-
-            startActivity(intent);
-        }else if(v == historicoCompras){
+        if(v == historicoCompras){
             Intent intent = new Intent(this, ListaPedidosActivity.class);
 
             startActivity(intent);
@@ -87,9 +68,6 @@ public class ContaActivity extends AbstractActivity implements View.OnClickListe
     @Override
     public void onItemClick(int position, View v) {
         Intent intent = new Intent(this, EnderecoActivity.class);
-
-        Endereco endereco = enderecos.get(position);
-        intent.putExtra(EnderecoActivity.ENDERECO_PARAMETER, endereco);
 
         startActivity(intent);
     }

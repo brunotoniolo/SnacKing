@@ -9,6 +9,7 @@ import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import uniftec.com.br.ecommerce.R;
@@ -32,6 +33,8 @@ public class ListaPedidosActivity extends AbstractActivity {
 
         listaPedidos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         //buscar pedidos
+
+        pedidos = new ArrayList<Pedido>();
         adapter = new PedidoAdapter(pedidos);
         listaPedidos.setAdapter(adapter);
 

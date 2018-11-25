@@ -5,9 +5,11 @@ import android.view.DragEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import uniftec.com.br.ecommerce.R;
+import uniftec.com.br.ecommerce.model.Imagem;
 import uniftec.com.br.ecommerce.model.Produto;
 
 public class ProdutoActivity extends AbstractActivity implements View.OnClickListener {
@@ -19,7 +21,7 @@ public class ProdutoActivity extends AbstractActivity implements View.OnClickLis
     private TextView txtPreco;
     private ViewPager pgrImagens;
     private Produto produto;
-    private Button btnAdicionarCarrinho;
+    private ImageView imgAdicionarCarrinho;
 
     @Override
     protected int getLayoutRes() {
@@ -32,8 +34,8 @@ public class ProdutoActivity extends AbstractActivity implements View.OnClickLis
         txtNome = (TextView) findViewById(R.id.produto_titulo);
         txtPreco = (TextView) findViewById(R.id.produto_preco);
         //pgrImagens = (ViewPager) findViewById(R.id.produto_lista_imagens);
-        btnAdicionarCarrinho = (Button) findViewById(R.id.produto_adicionar_carrinho);
-        btnAdicionarCarrinho.setOnClickListener(this);
+        imgAdicionarCarrinho = (ImageView) findViewById(R.id.produto_carrinho);
+        imgAdicionarCarrinho.setOnClickListener(this);
 
         produto = (Produto) getIntent().getSerializableExtra(PRODUTO_PARAMETER);
 
@@ -55,7 +57,6 @@ public class ProdutoActivity extends AbstractActivity implements View.OnClickLis
             finish();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -67,5 +68,8 @@ public class ProdutoActivity extends AbstractActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
+        if(view.getId() == imgAdicionarCarrinho.getId()){
+            appUtil.addCarrinho(this.produto);
+        }
     }
 }
