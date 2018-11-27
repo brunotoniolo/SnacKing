@@ -17,6 +17,7 @@ import uniftec.com.br.ecommerce.model.Endereco;
 import uniftec.com.br.ecommerce.model.Pedido;
 import uniftec.com.br.ecommerce.model.Response;
 import uniftec.com.br.ecommerce.tasks.AdicionarPedidoTask;
+import uniftec.com.br.ecommerce.util.AppUtil;
 
 public class FinalizaCompraActivity extends AbstractActivity implements View.OnClickListener, AdicionarPedidoTask.AdicionarPedidoDelegate {
 
@@ -65,6 +66,8 @@ public class FinalizaCompraActivity extends AbstractActivity implements View.OnC
                                    ,
 
             )))*/
+            Intent intent = new Intent(this, ListaPedidosActivity.class);
+            this.startActivity(intent);
         }
     }
 
