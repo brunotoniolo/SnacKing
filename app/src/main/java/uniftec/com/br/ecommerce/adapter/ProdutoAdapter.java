@@ -22,6 +22,7 @@ public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoV
     private static CardViewListeners cardViewListeners;
     private List<Produto> produtos;
     private Context context;
+
     public ProdutoAdapter(List<Produto> produtos, CardViewListeners clickListener) {
         this.produtos = produtos;
         this.cardViewListeners = clickListener;

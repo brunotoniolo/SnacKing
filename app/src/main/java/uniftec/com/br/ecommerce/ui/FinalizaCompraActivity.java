@@ -65,8 +65,6 @@ public class FinalizaCompraActivity extends AbstractActivity implements View.OnC
                                    ,
 
             )))*/
-            Intent intent = new Intent(this, QrCode.class);
-            startActivity(intent);
         }
     }
 

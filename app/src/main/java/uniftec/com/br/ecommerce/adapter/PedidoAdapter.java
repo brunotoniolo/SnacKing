@@ -1,6 +1,8 @@
 package uniftec.com.br.ecommerce.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
@@ -9,12 +11,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import uniftec.com.br.ecommerce.R;
 import uniftec.com.br.ecommerce.interfaces.CardViewListeners;
 import uniftec.com.br.ecommerce.model.Pedido;
 import uniftec.com.br.ecommerce.model.Produto;
+import uniftec.com.br.ecommerce.ui.QrCode;
 
 /**
  * Created by bruno.toniolo on 23/11/2017.
@@ -24,19 +29,28 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
 
     private static CardViewListeners cardViewListeners;
 
-    class PedidoViewHolder extends RecyclerView.ViewHolder {
+    class PedidoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imagem;
         TextView statusData;
         TextView produtos;
         TextView preco;
+        CardView cardView;
 
         public PedidoViewHolder(View itemView) {
             super(itemView);
-            imagem = (ImageView)itemView.findViewById(R.id.pedido_card_imagem);
+            ///imagem = (ImageView)itemView.findViewById(R.id.pedido_card_imagem);
             statusData = (TextView)itemView.findViewById(R.id.pedido_card_status_data);
             produtos = (TextView)itemView.findViewById(R.id.pedido_card_produtos);
             preco = (TextView)itemView.findViewById(R.id.pedido_card_preco);
+            cardView = (CardView)itemView.findViewById(R.id.pedido_card_view);
 
+            cardView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, QrCode.class);
+            context.startActivity(intent);
         }
     }
 
@@ -72,7 +86,10 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
         if( i > 5){
             holder.produtos.setText(holder.produtos.getText() + "+ " + (i - 5) + " produtos");
         }
-        holder.preco.setText("R$ " + preco);
+
+        Locale ptBr = new Locale("pt", "BR");
+        holder.statusData.setText(pedidos.get(position).getStatus());
+        holder.preco.setText(NumberFormat.getCurrencyInstance(ptBr).format(preco));
     }
 
     @Override
