@@ -19,15 +19,15 @@ import uniftec.com.br.ecommerce.model.Response;
 
 public interface PedidoService {
     @Headers("Accept: application/json;charset=UTF-8")
-    @PUT("/pedido")
+    @PUT("/api/pedido")
     public Call<Response<Pedido>> adicionaPedido(@Header("X-Token") String token, @Body NovaCompra novaCompra);
 
     @Headers("Accept: application/json;charset=UTF-8")
-    @POST("/pedido/{id}")
+    @POST("/api/pedido/{id}")
     public Call<Response<Pedido>> buscaStatus(@Header("id") Long id);
 
     @Headers("Accept: application/json;charset=UTF-8")
-    @GET("/pedido")
-    public Call<Response<List<Pedido>>> buscaTodosPedidos(@Header("X-Token") String token);
+    @GET("/api/pedido")
+    public Call<Response<List<Pedido>>> buscaTodosPedidos();
 
 }

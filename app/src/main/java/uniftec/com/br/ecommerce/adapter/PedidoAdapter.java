@@ -58,10 +58,11 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
     @Override
     public void onBindViewHolder(PedidoViewHolder holder, int position) {
         Double preco = 0.0;
+        List<Produto> produtos = pedidos.get(position).getProdutos();
         int i = 0;
         //pedidos.get(position).getProdutos().get(0).getImagem().criaImagem(this.context, holder.imagem);
 
-        for (Produto p : pedidos.get(position).getProdutos()) {
+        for (Produto p : produtos) {
             if(i < 5) {
                 holder.produtos.setText(holder.produtos.getText() + p.getTitulo() + "\n");
             }

@@ -26,7 +26,7 @@ public class BuscaTodosPedidosTask extends AsyncTask<Void, Void, Response<List<P
 
     @Override
     protected Response<List<Pedido>> doInBackground(Void... voids) {
-        Call<Response<List<Pedido>>> call = this.service.buscaTodosPedidos("");
+        Call<Response<List<Pedido>>> call = this.service.buscaTodosPedidos();
 
         try {
             retrofit2.Response<Response<List<Pedido>>> response = call.execute();

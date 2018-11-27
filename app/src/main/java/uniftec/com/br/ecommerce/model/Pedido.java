@@ -1,5 +1,6 @@
 package uniftec.com.br.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -9,13 +10,13 @@ import java.util.List;
 /**
  * Created by bruno.toniolo on 23/11/2017.
  */
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pedido {
 
     @JsonProperty("id")
     private int id;
 
-    @JsonProperty("itens")
+    @JsonProperty("produtos")
     private List<Produto> produtos;
 
     @JsonProperty("enderecoEntrega")
@@ -24,21 +25,20 @@ public class Pedido {
     @JsonProperty("status")
     private String status;
 
-    @JsonProperty("data")
-    private Date data;
+    //@JsonProperty("data")
+    //private Date data;
 
     @JsonProperty("total")
     private double total;
 
-    public Pedido(@JsonProperty("itens")List<Produto> produtos,
+    public Pedido(@JsonProperty("produtos")List<Produto> produtos,
                   @JsonProperty("enderecoEntrega")Endereco enderecoEntrega,
                   @JsonProperty("status")String status,
-                  @JsonProperty("data")Date data,
                   @JsonProperty("total")double total){
         this.produtos = produtos;
         this.enderecoEntrega = enderecoEntrega;
         this.status = status;
-        this.data = data;
+        //this.data = data;
         this.total = total;
     }
 
@@ -58,13 +58,13 @@ public class Pedido {
         this.status = status;
     }
 
-    public Date getData() {
-        return data;
-    }
+    //public Date getData() {
+    //    return data;
+    //}
 
-    public void setData(@JsonProperty("data")Date data) {
-        this.data = data;
-    }
+    //public void setData(@JsonProperty("data")Date data) {
+    //    this.data = data;
+    //}
 
     public double getTotal() {
         return total;
